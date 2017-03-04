@@ -16,7 +16,7 @@ public class User {
     private String login;
     private String password;
     private String name;
-    private List roles;
+//    private List<String> roles;
 
     public long getId() {
         return id;
@@ -50,11 +50,4 @@ public class User {
         this.name = name;
     }
 
-    public List getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List roles) {
-        this.roles = roles;
-    }
 }
