@@ -1,0 +1,24 @@
+2017-03-04 15:08:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (1, 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (1, 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id', 'name') VALUES (1, 'сбертех') [42001-193]
+2017-03-04 15:09:41 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id'[*], 'name') VALUES ('1', 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id'[*], 'name') VALUES ('1', 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id', 'name') VALUES ('1', 'сбертех') [42001-193]
+2017-03-04 15:17:09 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (11, 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (11, 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id', 'name') VALUES (11, 'сбертех') [42001-193]
+2017-03-04 15:19:57 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (11, 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id'[*], 'name') VALUES (11, 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id', 'name') VALUES (11, 'сбертех') [42001-193]
+2017-03-04 15:23:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id_advertisement'[*], 'name') VALUES (11, 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id_advertisement'[*], 'name') VALUES (11, 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id_advertisement', 'name') VALUES (11, 'сбертех') [42001-193]
+2017-03-04 15:23:46 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO CLIENTS ('id_advertisement'[*], 'name') VALUES (11, 'сбертех') "; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO CLIENTS ('id_advertisement'[*], 'name') VALUES (11, 'сбертех') "; expected "identifier"; SQL statement:
+INSERT INTO clients ('id_advertisement', 'name') VALUES (11, 'сбертех') [42001-193]
