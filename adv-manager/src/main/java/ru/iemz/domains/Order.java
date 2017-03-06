@@ -16,7 +16,7 @@ public class Order {
     private String description;
     @ManyToOne
     private Client client;
-    @ManyToOne
+    @ManyToMany(mappedBy = "ordersToContactsBinding")
     private Contact contact;
 
     public long getId() {

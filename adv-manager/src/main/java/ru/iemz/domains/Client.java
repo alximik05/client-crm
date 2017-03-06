@@ -13,11 +13,11 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private long idAdvertisement;
     @OneToMany
     private List<Contact> contacts;
     @OneToMany
     private List<Order> orders;
-    private long idAdvertisement;
 
     public long getId() {
         return id;

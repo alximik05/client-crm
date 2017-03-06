@@ -1,6 +1,7 @@
 package ru.iemz.domains;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by stas on 04/03/17.
@@ -15,6 +16,17 @@ public class Contact {
 
     @ManyToOne
     private Client client;
+
+    @ManyToMany(mappedBy = "ordersToContactsBinding")
+    private List<Order> orders;
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public long getId() {
         return id;
