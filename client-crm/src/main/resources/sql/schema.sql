@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS clients (
   id BIGINT NOT NULL,
   name VARCHAR(100) NOT NULL,
-  idAdvertisement BIGINT,
+  advertisementId BIGINT,
   PRIMARY KEY (id)
 );
 

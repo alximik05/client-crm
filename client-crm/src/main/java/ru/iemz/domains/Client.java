@@ -12,9 +12,10 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "name")
     private String name;
-//    @Column(name = "idAdvertisement")
-//    private long idAdvertisement;
+    @Column(name = "ADVERTISEMENTID")
+    private long advertisementId;
 
     public long getId() {
         return id;
@@ -32,11 +33,11 @@ public class Client {
         this.name = name;
     }
 
-//    public long getIdAdvertisement() {
-//        return idAdvertisement;
-//    }
-//
-//    public void setIdAdvertisement(long idAdvertisement) {
-//        this.idAdvertisement = idAdvertisement;
-//    }
+    public long getAdvertisementId() {
+        return advertisementId;
+    }
+
+    public void setAdvertisementId(long advertisementId) {
+        this.advertisementId = advertisementId;
+    }
 }
