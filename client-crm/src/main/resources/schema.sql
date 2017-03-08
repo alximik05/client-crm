@@ -1,7 +1,8 @@
--- DROP TABLE users;
--- DROP TABLE clients;
--- DROP TABLE contacts;
--- DROP TABLE orders;
+DROP TABLE users;
+DROP TABLE clients;
+DROP TABLE contacts;
+DROP TABLE orders;
+DROP TABLE ordersToContactsBinding;
 
 CREATE TABLE IF NOT EXISTS users (
   id BIGINT NOT NULL ,
@@ -15,14 +16,14 @@ CREATE TABLE IF NOT EXISTS clients (
   id BIGINT NOT NULL,
   name VARCHAR(100) NOT NULL,
   idAdvertisement BIGINT,
-  idContact BIGINT,
-  idOrder BIGINT,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS contacts (
   id BIGINT NOT NULL,
   idClient BIGINT,
+  name VARCHAR(100),
+  phone VARCHAR(100),
   PRIMARY KEY (id),
   FOREIGN KEY (idClient) REFERENCES clients(id)
 );
@@ -34,7 +35,8 @@ CREATE TABLE orders (
   idClient BIGINT,
   idContact BIGINT,
   PRIMARY KEY (id),
-  FOREIGN KEY (idClient) REFERENCES clients
+  FOREIGN KEY (idClient) REFERENCES clients,
+  FOREIGN KEY (idContact) REFERENCES contacts
 );
 
 CREATE TABLE ordersToContactsBinding (
