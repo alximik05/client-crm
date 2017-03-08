@@ -7,17 +7,14 @@ import java.util.List;
  * Created by stas on 04/03/17.
  */
 @Entity
-@Table(name = "clients")
+@Table(name = "CLIENTS")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    @OneToMany
-    private List<Contact> contacts;
-    @OneToMany
-    private List<Order> orders;
-    private long idAdvertisement;
+//    @Column(name = "idAdvertisement")
+//    private long idAdvertisement;
 
     public long getId() {
         return id;
@@ -35,27 +32,11 @@ public class Client {
         this.name = name;
     }
 
-    public List<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(List<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
-    public long getIdAdvertisement() {
-        return idAdvertisement;
-    }
-
-    public void setIdAdvertisement(long idAdvertisement) {
-        this.idAdvertisement = idAdvertisement;
-    }
+//    public long getIdAdvertisement() {
+//        return idAdvertisement;
+//    }
+//
+//    public void setIdAdvertisement(long idAdvertisement) {
+//        this.idAdvertisement = idAdvertisement;
+//    }
 }

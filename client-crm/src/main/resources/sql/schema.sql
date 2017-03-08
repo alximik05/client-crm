@@ -1,8 +1,8 @@
-DROP TABLE users;
-DROP TABLE clients;
-DROP TABLE contacts;
-DROP TABLE orders;
-DROP TABLE ordersToContactsBinding;
+-- DROP TABLE users;
+-- DROP TABLE clients;
+-- DROP TABLE contacts;
+-- DROP TABLE orders;
+-- DROP TABLE ordersToContactsBinding;
 
 CREATE TABLE IF NOT EXISTS users (
   id BIGINT NOT NULL ,
