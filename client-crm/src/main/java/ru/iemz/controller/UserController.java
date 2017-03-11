@@ -2,27 +2,27 @@ package ru.iemz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.iemz.dao.ClientRepository;
-import ru.iemz.domains.Client;
+import ru.iemz.dao.UserRepository;
+import ru.iemz.domains.User;
 
 import java.util.List;
 
 /**
- * Created by stas on 04/03/17.
+ * Created by stas on 08/03/17.
  */
 @Controller
-public class ClientController {
+@RequestMapping("/users")
+public class UserController {
 
     @Autowired
-    ClientRepository clientRepository;
+    private UserRepository userRepository;
 
-    @RequestMapping(name = "/clients")
     @ResponseBody
-    public List<Client> getAllClients() {
-        return clientRepository.findAll();
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

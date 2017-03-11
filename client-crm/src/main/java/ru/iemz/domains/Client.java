@@ -10,9 +10,10 @@ import java.util.List;
 @Table(name = "CLIENTS")
 public class Client {
     @Id
+    @Column(name = "CLIENT_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
     @Column(name = "ADVERTISEMENTID")
     private long advertisementId;

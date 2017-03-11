@@ -5,45 +5,45 @@
 -- DROP TABLE ordersToContactsBinding;
 
 CREATE TABLE IF NOT EXISTS users (
-  id BIGINT NOT NULL ,
+  user_id BIGINT NOT NULL ,
   login VARCHAR(100),
   password VARCHAR(100),
   name VARCHAR(100),
-  PRIMARY KEY (id)
+  PRIMARY KEY (user_id)
 );
 
 CREATE TABLE IF NOT EXISTS clients (
-  id BIGINT NOT NULL,
+  client_id BIGINT NOT NULL,
   name VARCHAR(100) NOT NULL,
   advertisementId BIGINT,
-  PRIMARY KEY (id)
+  PRIMARY KEY (client_id)
 );
 
 CREATE TABLE IF NOT EXISTS contacts (
-  id BIGINT NOT NULL,
-  idClient BIGINT,
+  contact_id BIGINT NOT NULL,
+  client_id BIGINT,
   name VARCHAR(100),
   phone VARCHAR(100),
-  PRIMARY KEY (id),
-  FOREIGN KEY (idClient) REFERENCES clients(id)
+  PRIMARY KEY (contact_id),
+  FOREIGN KEY (client_id) REFERENCES clients(client_id)
 );
 
 CREATE TABLE orders (
-  id BIGINT NOT NULL,
+  order_id BIGINT NOT NULL,
   amount DOUBLE,
   description VARCHAR(1024),
-  idClient BIGINT,
-  idContact BIGINT,
-  PRIMARY KEY (id),
-  FOREIGN KEY (idClient) REFERENCES clients,
-  FOREIGN KEY (idContact) REFERENCES contacts
+  client_id BIGINT,
+  contact_id BIGINT,
+  PRIMARY KEY (order_id),
+  FOREIGN KEY (client_id) REFERENCES clients(client_id),
+  FOREIGN KEY (contact_id) REFERENCES contacts(contact_id)
 );
 
 CREATE TABLE ordersToContactsBinding (
-  id BIGINT NOT NULL,
-  idOrder BIGINT NOT NULL,
-  idContact BIGINT NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (idOrder) REFERENCES orders,
-  FOREIGN KEY (idContact) REFERENCES contacts
+  order_to_contact_id BIGINT NOT NULL,
+  order_id BIGINT NOT NULL,
+  contact_id BIGINT NOT NULL,
+  PRIMARY KEY (order_to_contact_id),
+  FOREIGN KEY (order_id) REFERENCES orders(order_id),
+  FOREIGN KEY (contact_id) REFERENCES contacts(contact_id)
 )

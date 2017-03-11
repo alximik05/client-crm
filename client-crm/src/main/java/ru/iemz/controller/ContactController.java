@@ -5,24 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.iemz.dao.ClientRepository;
-import ru.iemz.domains.Client;
+import ru.iemz.dao.ContactRepository;
+import ru.iemz.domains.Contact;
 
 import java.util.List;
 
 /**
- * Created by stas on 04/03/17.
+ * Created by stas on 08/03/17.
  */
 @Controller
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/contacts")
+public class ContactController {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private ContactRepository contactRepository;
+
 
     @ResponseBody
     @GetMapping
-    public List<Client> getAllClients() {
-        return clientRepository.findAll();
+    public List<Contact> getAllContacts() {
+        return contactRepository.findAll();
     }
 }

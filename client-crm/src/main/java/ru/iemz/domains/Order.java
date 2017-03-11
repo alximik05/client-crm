@@ -11,12 +11,21 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "order_id")
     private long id;
+
+    @Column(name = "amount")
     private double amount;
+
+    @Column(name = "description")
     private String description;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "CLIENT_ID")
     private Client client;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "contact_id")
     private Contact contact;
 
     public long getId() {
