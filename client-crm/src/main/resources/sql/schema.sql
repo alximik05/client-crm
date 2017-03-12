@@ -39,11 +39,10 @@ CREATE TABLE orders (
   FOREIGN KEY (contact_id) REFERENCES contacts(contact_id)
 );
 
-CREATE TABLE ordersToContactsBinding (
-  order_to_contact_id BIGINT NOT NULL,
+CREATE TABLE orders_contacts_binding (
   order_id BIGINT NOT NULL,
   contact_id BIGINT NOT NULL,
-  PRIMARY KEY (order_to_contact_id),
+  PRIMARY KEY (order_id, contact_id),
   FOREIGN KEY (order_id) REFERENCES orders(order_id),
   FOREIGN KEY (contact_id) REFERENCES contacts(contact_id)
 )

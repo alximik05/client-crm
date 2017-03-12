@@ -1,6 +1,7 @@
 package ru.iemz.domains;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by stas on 04/03/17.
@@ -24,9 +25,11 @@ public class Order {
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "contact_id")
-    private Contact contact;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "ORDERS_CONTACTS_BINDING",
+            joinColumns = @JoinColumn(name = "CONTACT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
+    private Set<Contact> contacts;
 
     public long getId() {
         return id;
@@ -60,11 +63,11 @@ public class Order {
         this.client = client;
     }
 
-    public Contact getContact() {
-        return contact;
+    public Set<Contact> getContacts() {
+        return contacts;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 }

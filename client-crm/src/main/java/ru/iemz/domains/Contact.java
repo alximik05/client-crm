@@ -1,6 +1,7 @@
 package ru.iemz.domains;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by stas on 04/03/17.
