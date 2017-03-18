@@ -25,6 +25,12 @@ public class Contact {
     @Column(name = "phone")
     private String phone;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ORDERS_CONTACTS_BINDING",
+            joinColumns = @JoinColumn(name = "CONTACT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
+    private Set<Order> orders;
+
     public String getName() {
         return name;
     }
@@ -55,5 +61,13 @@ public class Contact {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }
