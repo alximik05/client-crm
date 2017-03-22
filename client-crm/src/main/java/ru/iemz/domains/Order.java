@@ -25,12 +25,6 @@ public class Order {
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "ORDERS_CONTACTS_BINDING",
-            joinColumns = @JoinColumn(name = "CONTACT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
-    private Set<Contact> contacts;
-
     public long getId() {
         return id;
     }
@@ -63,11 +57,4 @@ public class Order {
         this.client = client;
     }
 
-    public Set<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<Contact> contacts) {
-        this.contacts = contacts;
-    }
 }

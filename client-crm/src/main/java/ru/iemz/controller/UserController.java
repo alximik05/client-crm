@@ -2,11 +2,13 @@ package ru.iemz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.iemz.dao.UserRepository;
 import ru.iemz.domains.User;
+import ru.iemz.service.UserService;
 
 import java.util.List;
 
@@ -18,11 +20,11 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
-    @ResponseBody
     @GetMapping
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public String getAllUsers(Model model) {
+        model.addAttribute("users", userService.getAllUsers());
+        return "usersList";
     }
 }

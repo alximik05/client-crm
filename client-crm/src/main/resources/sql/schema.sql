@@ -33,10 +33,8 @@ CREATE TABLE orders (
   amount DOUBLE,
   description VARCHAR(1024),
   client_id BIGINT,
-  contact_id BIGINT,
   PRIMARY KEY (order_id),
-  FOREIGN KEY (client_id) REFERENCES clients(client_id),
-  FOREIGN KEY (contact_id) REFERENCES contacts(contact_id)
+  FOREIGN KEY (client_id) REFERENCES clients(client_id)
 );
 
 CREATE TABLE orders_contacts_binding (
