@@ -9,28 +9,26 @@ import com.google.api.ads.adwords.axis.v201702.cm.Selector;
 import com.google.api.ads.adwords.lib.client.AdWordsSession;
 import com.google.api.ads.adwords.lib.factory.AdWordsServicesInterface;
 import com.google.api.ads.adwords.lib.selectorfields.v201702.cm.CampaignField;
-import com.google.api.ads.common.lib.auth.OfflineCredentials;
-import com.google.api.client.auth.oauth2.Credential;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import ru.iemz.adwords.SpringContextStaticHolder;
+import ru.iemz.adwords.auth.AdwordsSessionFactory;
 
 @SpringBootApplication
 public class ExampleGetAllCampaigns {
 
 	private static final int PAGE_SIZE = 100;
 
-	public static void main(String[] args) throws Exception {
-		// Generate a refreshable OAuth2 credential.
-		Credential oAuth2Credential = new OfflineCredentials.Builder()
-				.forApi(OfflineCredentials.Api.ADWORDS)
-				.fromFile()
-				.build()
-				.generateCredential();
 
-		// Construct an AdWordsSession.
-		AdWordsSession session = new AdWordsSession.Builder()
-				.fromFile()
-				.withOAuth2Credential(oAuth2Credential)
-				.build();
+	private static final AdwordsSessionFactory sessionFactory =
+			SpringContextStaticHolder.getContext().getBean(AdwordsSessionFactory.class);
+
+
+
+
+	public static void main(String[] args) throws Exception {
+
+
+		AdWordsSession session = sessionFactory.getSession();
 
 		AdWordsServicesInterface adWordsServices = AdWordsServices.getInstance();
 
@@ -64,6 +62,7 @@ public class ExampleGetAllCampaigns {
 				for (Campaign campaign : page.getEntries()) {
 					System.out.printf("Campaign with name '%s' and ID %d was found.%n", campaign.getName(),
 							campaign.getId());
+					System.out.println("ID: " + campaign.getId());
 				}
 			} else {
 				System.out.println("No campaigns were found.");
