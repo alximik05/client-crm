@@ -9,6 +9,7 @@ import ru.iemz.dao.ClientRepository;
 import ru.iemz.domains.Client;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by stas on 19/03/17.
@@ -25,5 +26,11 @@ public class ClientService {
         List<Client> all = clientRepository.findAll();
         LOGGER.debug("client list size = {}", all.size());
         return all;
+    }
+
+    public Client getClientById(Long id) {
+        Client client = clientRepository.getOne(id);
+        LOGGER.debug("client by id = {}", client.getId());
+        return Objects.requireNonNull(client, "Client not found");
     }
 }
