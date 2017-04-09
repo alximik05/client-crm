@@ -1,5 +1,7 @@
 package ru.iemz.domains;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,7 +27,7 @@ public class Contact {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "ORDERS_CONTACTS_BINDING",
             joinColumns = @JoinColumn(name = "CONTACT_ID"),
             inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.iemz.dao.ClientRepository;
 import ru.iemz.domains.Client;
 import ru.iemz.service.ClientService;
+import ru.iemz.service.ContactService;
 
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+    @Autowired
+    private ContactService contactService;
+
     @GetMapping
     public String getAllClients(Model model) {
         model.addAttribute("clients", clientService.getAllClients());
@@ -35,6 +39,7 @@ public class ClientController {
     @GetMapping
     public String getClientById(@PathVariable long id, Model model) {
         model.addAttribute("client", clientService.getClientById(id));
+        model.addAttribute("contacts", contactService.getContactsByClientId(id));
         return "clientEdit";
     }
 

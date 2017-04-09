@@ -28,4 +28,10 @@ public class ContactService {
         LOGGER.debug("contact list size = {}", all.size());
         return all;
     }
+
+    public List<Contact> getContactsByClientId(long clientId) {
+        List<Contact> contactsByClientId = contactRepository.getContactsByClientId(clientId);
+        LOGGER.debug("contact list size = {}", contactsByClientId.size());
+        return contactsByClientId;
+    }
 }

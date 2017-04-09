@@ -12,18 +12,18 @@
             <input type="button" class="btn" value="создать"/>
             <table class="table table-hover">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>ID объявы</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>ID объявы</th>
+                </tr>
                 </thead>
                 <tbody th:each="client : ${clients}">
-                    <tr>
-                        <td th:text="${client.id}"></td>
-                        <td th:text="${client.name}"></td>
-                        <td th:text="${client.advertisementId}"></td>
-                    </tr>
+                <tr>
+                    <td th:text="${client.id}"></td>
+                    <td th:text="${client.name}"></td>
+                    <td th:text="${client.advertisementId}"></td>
+                </tr>
                 </tbody>
             </table>
         </div>
