@@ -33,7 +33,44 @@ public class CampaignBetta {
     @Column(name = "GOOGLE_CAMPAIGN_ID")
     private long googleCampaignId;
 
-    
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getExternalClientId() {
+        return externalClientId;
+    }
+
+    public void setExternalClientId(long externalClientId) {
+        this.externalClientId = externalClientId;
+    }
+
+    public CampaignAlpha getAlphaCampaignId() {
+        return alphaCampaignId;
+    }
+
+    public void setAlphaCampaignId(CampaignAlpha alphaCampaignId) {
+        this.alphaCampaignId = alphaCampaignId;
+    }
+
+    public long getGoogleCampaignId() {
+        return googleCampaignId;
+    }
+
+    public void setGoogleCampaignId(long googleCampaignId) {
+        this.googleCampaignId = googleCampaignId;
+    }
 }
