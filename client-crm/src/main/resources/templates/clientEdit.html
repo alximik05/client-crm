@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8"></meta>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <title>Список клиентов</title>
+    <title>Редактировать / создать клиента</title>
 </head>
 <body>
     <div class="container">
-        <h1>Список клиентов</h1>
+        <h1>Клиент</h1>
+        <h1 th:text="${client.name}"></h1>
         <div class="col-sm-12">
-            <input type="button" class="btn" value="создать"/>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>ID объявы</th>
+                    <th>PHONE</th>
+                    <th>заказы</th>
                 </tr>
                 </thead>
-                <tbody th:each="client : ${clients}">
+                <tbody th:each="contact : ${contacts}">
                 <tr>
-                    <td th:text="${client.id}"></td>
-                    <td th:text="${client.name}"></td>
-                    <td th:text="${client.advertisementId}"></td>
+                    <td th:text="${contact.id}"></td>
+                    <td th:text="${contact.name}"></td>
+                    <td th:text="${contact.phone}"></td>
+                    <td th:text="${contact.orders}"></td>
                 </tr>
                 </tbody>
             </table>
